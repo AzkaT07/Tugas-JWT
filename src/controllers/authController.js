@@ -34,7 +34,7 @@ const login = async (req, res) => {
         
         const token = jwt.sign(jwtPayload, SECRET_JWT, { expiresIn: '1h' });
 
-        return res.status(200).send({message: 'Anda Berhasil Login'});
+        return res.status(200).send({message: 'Anda Berhasil Login', token});
     }catch (err) {
         console.error(err);
         res.status(500).json({message:'Internal Server Error'})
